@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletSpawnController : MonoBehaviour
 {
     public GameObject dragonBreath;
-    public float interval = 1.0f;
+    public float interval = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,5 @@ public class BulletSpawnController : MonoBehaviour
         {
             GameObject clonedDragonBreath = Instantiate(dragonBreath, transform.position, Quaternion.identity);
         }
-
-        
     }
 }

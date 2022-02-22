@@ -7,6 +7,7 @@ TagManager:
   - Border
   - RedDragonBreath
   - Enemey
+  - SpawnLocation
   layers:
   - Default
   - TransparentFX

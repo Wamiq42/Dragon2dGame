@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class RedDragonBreathController : MonoBehaviour
 {
+    private int killedEnemies = 0;
+
+
+    private void Start()
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().killedEnemies = killedEnemies;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "RedDragonBreath")
@@ -17,7 +24,14 @@ public class RedDragonBreathController : MonoBehaviour
             if(collision.gameObject.tag != "Border")
             {
                 Destroy(collision.gameObject);
+                killedEnemies += 1;
+                Debug.Log("RBC killed " + killedEnemies);
             }
         }
+    }
+
+    public int getKilledEnemies()
+    {
+        return killedEnemies;
     }
 }
