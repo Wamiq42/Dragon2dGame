@@ -17,11 +17,10 @@ public class SpawningRandomEnemey : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.isGameWon && interval != 0)
+        if (gameManager.isGameWon && interval != 0 && gameManager.isGameStarted)
         {
             interval -= 1.0f;
             gameManager.isGameWon = false;
-            gameManager.waveText.SetActive(false);
         }
     }
 
@@ -33,7 +32,7 @@ public class SpawningRandomEnemey : MonoBehaviour
     {
         float randomNum = Random.value;
 
-        if (GameObject.FindWithTag("Player") != null)
+        if (GameObject.FindWithTag("Player") != null && gameManager.isGameStarted)
         {
             if (randomNum < 0.2)
             {

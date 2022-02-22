@@ -8,13 +8,16 @@ public class GameManager : MonoBehaviour
     private int livesRemaining = 3;
     private float time;
     private GameObject spawnedPlayer;
+    
 
+    
     public int killedEnemies;
     public GameObject playerPrefab;
     public Text livesText;
     public Text gameTimer;
     public GameObject waveText;
     public bool isGameWon = false;
+    public bool isGameStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +37,13 @@ public class GameManager : MonoBehaviour
 
     void KilledEnemies()
     {
-        Debug.Log(killedEnemies);
+        //Debug.Log(killedEnemies);
     }
     
 
     void LivesRemaining()
     {
-        if (spawnedPlayer == null && livesRemaining != 0)
+        if (spawnedPlayer == null && livesRemaining != 0 && isGameStarted)
         {
             livesRemaining -= 1;
             livesText.text = "Lives : " + livesRemaining;
@@ -51,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     void TotalTime()
     {
-        if (spawnedPlayer != null && livesRemaining != 0 && !isGameWon) 
+        if (spawnedPlayer != null && livesRemaining != 0 && !isGameWon && isGameStarted) 
         {
             time += Time.deltaTime;
             //Debug.Log(time);
