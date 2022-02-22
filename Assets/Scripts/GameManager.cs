@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public bool isGameWon = false;
     public bool isGameStarted = false;
     public bool isSoundOn = true;
-   
+    public bool isMusicOn = true;
     public bool gamePaused = false;
 
     // Start is called before the first frame update
@@ -83,7 +83,10 @@ public class GameManager : MonoBehaviour
         //Debug.Log(killedEnemies);
     }
     
-
+    public void setMusicOnOff(bool onOff)
+    {
+        isMusicOn = true;
+    }
 
     public void setSoundOnOff(bool onOff)
     {
