@@ -277,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 284787972}
   - component: {fileID: 284787975}
+  - component: {fileID: 284787976}
   - component: {fileID: 284787974}
   - component: {fileID: 284787973}
   m_Layer: 5
@@ -349,7 +350,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 284787974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 284787976}
+        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
+        m_MethodName: GoBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &284787974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +401,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284787971}
   m_CullTransparentMesh: 1
+--- !u!114 &284787976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284787971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b4428c89ac96994ca836d5ea95ecb4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activePanel: {fileID: 1907363607}
+  toGoPanel: {fileID: 1696651754}
 --- !u!1 &318323836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,8 +1971,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1246089121}
-        m_TargetAssemblyTypeName: PlayButtonScript, Assembly-CSharp
-        m_MethodName: StartGame
+        m_TargetAssemblyTypeName: TutorialButtonScript, Assembly-CSharp
+        m_MethodName: StartTutorialPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1964,12 +1991,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1246089118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbd5b9d03ca01c142bae27cf5faba751, type: 3}
+  m_Script: {fileID: 11500000, guid: c8f688450e0c7b64f8c9a4072f1cbd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGameStarted: 0
   mainMenuPanel: {fileID: 1696651754}
-  gameManager: {fileID: 1249562156}
+  tutorialPanel: {fileID: 1907363607}
 --- !u!114 &1246089122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2495,7 +2521,7 @@ GameObject:
   - component: {fileID: 1714506828}
   - component: {fileID: 1714506827}
   m_Layer: 5
-  m_Name: MainMenuPanel
+  m_Name: MainMenuText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

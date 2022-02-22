@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class TutorialButtonScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject mainMenuPanel;
+    public GameObject tutorialPanel;
+   
+
+    public void StartTutorialPanel()
     {
-        
+
+        tutorialPanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
     }
 }
