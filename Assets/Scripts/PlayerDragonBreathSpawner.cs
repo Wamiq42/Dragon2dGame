@@ -6,11 +6,12 @@ public class PlayerDragonBreathSpawner : MonoBehaviour
 {
     public AudioSource fireSound;
     public GameObject playerDragonBreath;
+    public GameManager gameManager;
   
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -18,10 +19,14 @@ public class PlayerDragonBreathSpawner : MonoBehaviour
     {
        
 
-        if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("space") && gameManager.isGameStarted)
         {
             Instantiate(playerDragonBreath, transform.position, Quaternion.identity);
-            fireSound.Play();
+            if (gameManager.isSoundOn)
+            {
+                fireSound.Play();
+            }
+           
         }
     }
 }

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject waveText;
     public bool isGameWon = false;
     public bool isGameStarted = false;
+    public bool isSoundOn = true;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,10 @@ public class GameManager : MonoBehaviour
     }
     
 
+    public void setSoundOnOff(bool onOff)
+    {
+        isSoundOn = onOff;
+    }
     void LivesRemaining()
     {
         if (spawnedPlayer == null && livesRemaining != 0 && isGameStarted)
