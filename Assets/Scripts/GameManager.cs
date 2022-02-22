@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
     private int livesRemaining = 3;
     private float time;
     private GameObject spawnedPlayer;
+    private Camera mainCamera;
     
-
-    
+    public Slider slider;
+    public GameObject pausePanel;
     public int killedEnemies;
     public GameObject playerPrefab;
     public Text livesText;
@@ -19,21 +20,62 @@ public class GameManager : MonoBehaviour
     public bool isGameWon = false;
     public bool isGameStarted = false;
     public bool isSoundOn = true;
+   
+    public bool gamePaused = false;
 
     // Start is called before the first frame update
     void Start()
     {
         spawnedPlayer = GameObject.FindGameObjectWithTag("Player");
-
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        KilledEnemies();
+        if(Input.GetKeyDown(KeyCode.P))
+            PauseGame();
+        
         TotalTime();
         LivesRemaining();
+
+        ChangeBackGround();
      
+    }
+
+
+  
+    void PauseGame()
+    {
+        if(!gamePaused)
+        {
+            gamePaused = true;
+            pausePanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+         else
+        {
+            gamePaused = false;
+            pausePanel.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
+
+    public void ChangeBackGround()
+    {
+        if(slider.value == 0)
+        {
+            mainCamera.backgroundColor = Color.white;
+        }
+        if(slider.value == 1)
+        {
+            mainCamera.backgroundColor = Color.cyan;
+        }
+        if(slider.value == 2)
+        {
+            mainCamera.backgroundColor = Color.magenta;
+        }
     }
 
     void KilledEnemies()
@@ -41,6 +83,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log(killedEnemies);
     }
     
+
 
     public void setSoundOnOff(bool onOff)
     {
